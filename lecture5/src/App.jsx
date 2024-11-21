@@ -22,20 +22,26 @@
 
 // !!! part two on today class 
 
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 
-const App = () => {
-  const [time , setTime]=useState(new Date().toLocaleTimeString())
-  setInterval(() => {
-    setTime(new Date().toLocaleTimeString())
-  }, 1000);
-  return (
-   <>
-   <h1>{time}</h1>
-   
-   </>
-  )
-}
+// const App = () => {
+//   const [time , setTime]=useState(new Date().toLocaleTimeString())
+//  let interval =  setInterval(() => {
+//     setTime(new Date().toLocaleTimeString())
+//   }, 1000);
 
-export default App
+//   const handleClick = ()=>{
+// clearInterval(interval)
+// console.log('clicked  ')
+
+//   }
+//   return (
+//    <>
+//    <h1>{time}</h1>
+//    <button onClick={handleClick} >Stop Time</button>
+//    </>
+//   )
+// }
+
+// export default App
 
