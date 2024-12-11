@@ -24,20 +24,28 @@ console.log(todo)
   const handledelete =(id)=>{
  const updaate= todotask.filter((todo)=> todo.id !==id)
  settodotask(updaate)
+
+
+
 }
+
+const uirendring = todotask.length>0?todotask.map((todo) => (
+    
+  <li key={todo.id}>{todo.task} <button onClick={()=>{handledelete(todo.id)}} >Delete</button></li> 
+)):(<h1>no task pending</h1>)
   return (
     <>
      <form onSubmit={handleSubmit} >
        <input onChange={(e)=>settask(e.target.value)} value={task} type="text"  placeholder='Enter task' />
-       <button>Add task</button>
+
+       <button  >Add task</button>
       
+      
+
     
      </form>
      <ul>
-  {todotask.map((todo) => (
-    
-    <li key={todo.id}>{todo.task} <button onClick={()=>{handledelete(todo.id)}} >Delete</button></li> 
-  ))}
+  {uirendring}
 </ul>
 
      </>
