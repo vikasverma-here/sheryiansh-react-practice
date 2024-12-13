@@ -1,64 +1,66 @@
 
-// import React from 'react'
-// import { useState } from 'react'
-// import { nanoid } from 'nanoid'
+// function withoutStyledCode(){
+  
+// // import React from 'react'
+// // import { useState } from 'react'
+// // import { nanoid } from 'nanoid'
 
-// const App = () => {
-//   const [text, settext] = useState("")
-//    const [task, settask] = useState([])
+// // const App = () => {
+// //   const [text, settext] = useState("")
+// //    const [task, settask] = useState([])
 
-//   // !!! this is the form handler function 
+// //   // !!! this is the form handler function 
 
-//   const submitHandler = (e)=>{
-//  e.preventDefault()
+// //   const submitHandler = (e)=>{
+// //  e.preventDefault()
 
-//  if(text.trim()==="" ){
-//   return;
-//  }
+// //  if(text.trim()==="" ){
+// //   return;
+// //  }
 
-//  const data= {
-//   text:text,
-//   id:nanoid()
-//  }
+// //  const data= {
+// //   text:text,
+// //   id:nanoid()
+// //  }
 
 
-//  settask([...task,data])
-//  settext("")
+// //  settask([...task,data])
+// //  settext("")
 
-//   }
+// //   }
 
-// // !!! Delete feature is here 
+// // // !!! Delete feature is here 
 
-//   const handlclick =(id)=>{
-// const updatedTask = task.filter((task)=>task.id !==id)
-// settask(updatedTask)
-//   }
+// //   const handlclick =(id)=>{
+// // const updatedTask = task.filter((task)=>task.id !==id)
+// // settask(updatedTask)
+// //   }
 
-// // !!!! rendring ui is here 
+// // // !!!! rendring ui is here 
 
-// const uiRedring = task.length>0 ? task.map(({text,id})=>{
-//   return <li className="list-decimal" key={id} > {text} <i className="ri-delete-bin-fill" onClick={()=>handlclick(id)}></i> </li>
-//  }):(<h1>No task Pending </h1>)
+// // const uiRedring = task.length>0 ? task.map(({text,id})=>{
+// //   return <li className="list-decimal" key={id} > {text} <i className="ri-delete-bin-fill" onClick={()=>handlclick(id)}></i> </li>
+// //  }):(<h1>No task Pending </h1>)
 
-//   return (
-//     <div className='container p-10'>
-//       <form className='form ' onSubmit={submitHandler} >
-//         <input type="text" onChange={(e)=>settext(e.target.value)} value={text} placeholder='Enter task' />
-//         <button>Add task</button>
+// //   return (
+// //     <div className='container p-10'>
+// //       <form className='form ' onSubmit={submitHandler} >
+// //         <input type="text" onChange={(e)=>settext(e.target.value)} value={text} placeholder='Enter task' />
+// //         <button>Add task</button>
 
-//       </form>
-//       <ol>
+// //       </form>
+// //       <ol>
 
-//         {uiRedring}
+// //         {uiRedring}
        
-//       </ol>
+// //       </ol>
       
-//     </div>
-//   )
+// //     </div>
+// //   )
+// // }
+
+// // export default App
 // }
-
-// export default App
-
 
 
 
@@ -69,11 +71,11 @@ const App = () => {
   const [text, settext] = useState('');
   const [task, settask] = useState([]);
 
-  // !!! this is the form handler function
+ 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if (text.trim() === '') return; // Prevent empty tasks
+    if (text.trim() === '') return; 
 
     const data = {
       text: text.trim(),
