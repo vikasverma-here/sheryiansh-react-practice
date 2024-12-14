@@ -12,7 +12,7 @@ const TaskList = ({ task, handlclick,searchText }) => {
           <TaskItem key={id} text={text} id={id} handlclick={handlclick} />
         ))
       ) : (
-        <h1 className="text-center text-lg text-gray-500">No task pending</h1>
+        <h1 className="text-center text-lg text-green-500">No task pending</h1>
       )}
     </ol>
   );

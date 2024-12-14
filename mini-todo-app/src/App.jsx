@@ -1,110 +1,44 @@
 
-
-
-// import React, { useState } from 'react';
-// import { nanoid } from 'nanoid';
-
-// const App = () => {
-//   const [text, settext] = useState('');
-//   const [task, settask] = useState([]);
-
- 
-//   const submitHandler = (e) => {
-//     e.preventDefault();
-
-//     if (text.trim() === '') return; 
-
-//     const data = {
-//       text: text.trim(),
-//       id: nanoid(),
-//     };
-
-//     settask([...task, data]);
-//     settext('');
-//   };
-
-//   // !!! Delete feature is here
-//   const handlclick = (id) => {
-//     const updatedTask = task.filter((task) => task.id !== id);
-//     settask(updatedTask);
-//   };
-
-//   // !!!! Rendering UI is here
-//   const uiRendering =
-//     task.length > 0 ? (
-//       task.map(({ text, id }) => (
-//         <li
-//           className="flex justify-between items-center bg-gray-100 p-3 rounded-md shadow-sm hover:bg-gray-200 transition duration-200"
-//           key={id}
-//          >
-//           <span>{text}</span>
-//           <i
-//             className="ri-delete-bin-fill text-red-500 cursor-pointer hover:text-red-600 transition duration-200"
-//             onClick={() => handlclick(id)}
-//           ></i>
-//         </li>
-//       ))
-//     ) : (
-//       <h1 className="text-center text-lg text-gray-500">No task pending</h1>
-//     );
-
-//   return (
-//     <div className="container mx-auto p-6 bg-gray-50 rounded-md shadow-lg max-w-md">
-//       <form
-//         className="flex flex-col gap-4 mb-6"
-//         onSubmit={submitHandler}
-//       >
-//         <input
-//           type="text"
-//           className="border border-gray-300 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-//           onChange={(e) => settext(e.target.value)}
-//           value={text}
-//           placeholder="Enter task"
-//         />
-//         <button
-//           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
-//           type="submit"
-//         >
-//           Add Task
-//         </button>
-//       </form>
-//       <ol className="space-y-3">
-//         {uiRendering}
-//       </ol>
-//     </div>
-//   );
-// };
-
-// export default App;
-
-
-
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import TaskForm from './TaskForm';
 import TaskList from './TaskList';
 
 const App = () => {
+  //task ko local storage se  task variable me la rahe hai taki  use kar paye
   const [text, settext] = useState('');
-  const [task, settask] = useState([]);
-  const [searchText, setSearchText] = useState(''); 
+  const [task, settask] = useState(() => {
+    const savedTasks = localStorage.getItem('task');
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
+
+  const [searchText, setSearchText] = useState('');
+
   const submitHandler = (e) => {
     e.preventDefault();
 
     if (text.trim() === '') return;
 
     const data = {
-      text: text,
+      text: text.trim(),
       id: nanoid(),
     };
 
-    settask([...task, data]);
+    const updatedTaskList = [...task, data];
+
+    //  yha se task bhej jo ki updatedtask hai yani ki pichla task our ane wala taask
+    settask(updatedTaskList);
+    localStorage.setItem('task', JSON.stringify(updatedTaskList));
+
     settext('');
   };
 
   const handlclick = (id) => {
-    const updatedTask = task.filter((task) => task.id !== id);
-    settask(updatedTask);
+    const updatedTaskList = task.filter((task) => task.id !== id);
+
+    // yh ape jo hum logo ne id se   data ko filter kiya hai o data le rahe hai 
+    settask(updatedTaskList);
+    localStorage.setItem('task', JSON.stringify(updatedTaskList));
   };
 
   return (
@@ -113,7 +47,7 @@ const App = () => {
         text={text}
         settext={settext}
         submitHandler={submitHandler}
-        searchText={searchText} 
+        searchText={searchText}
         setSearchText={setSearchText}
       />
       <TaskList task={task} handlclick={handlclick} searchText={searchText} />
