@@ -42,7 +42,7 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 bg-gray-50 rounded-md shadow-lg max-w-md">
+    <div className="container mx-auto p-6 bg-gray-50 rounded-md shadow-lg max-w-md bg-zinc-700 ">
       <TaskForm
         text={text}
         settext={settext}
