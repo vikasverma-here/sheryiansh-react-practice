@@ -16,14 +16,13 @@ const App = () => {
       setError("Please fill in all the fields before submitting.");
       return false;
     }
-    setError(""); 
+    setError("");
     return true;
   };
 
-
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(select)
+
     const data = {
       name,
       email,
@@ -34,13 +33,11 @@ const App = () => {
 
     if (!validateForm()) return;
 
-   
     const updatedFeedback = [...obj, data];
     setObj(updatedFeedback);
 
-   
     localStorage.setItem("feedback", JSON.stringify(updatedFeedback));
-   
+
     setName("");
     setEmail("");
     setRating("");
@@ -48,20 +45,40 @@ const App = () => {
     setSelect("");
   };
 
-  const handleClick = (taskid) => {
-    
-    const updatedFeedback = obj.filter((val, index) => {
-      return index !== taskid;
+  const calculateAverages = () => {
+    const averages = {};
+
+    obj.forEach(({ select, rating }) => {
+      const numericRating = parseFloat(rating);
+
+      if (!averages[select]) {
+        averages[select] = { count: 0, total: 0 };
+      }
+
+      averages[select].count += 1;
+      averages[select].total += numericRating;
     });
 
-    setObj(updatedFeedback);
+    Object.keys(averages).forEach((key) => {
+      averages[key].average = (averages[key].total / averages[key].count).toFixed(2);
+      delete averages[key].total;
+    });
 
+    return averages;
+  };
+
+  const handleClick = (taskid) => {
+    const updatedFeedback = obj.filter((_, index) => index !== taskid);
+    setObj(updatedFeedback);
     localStorage.setItem("feedback", JSON.stringify(updatedFeedback));
   };
+
+  const averages = calculateAverages();
+
   return (
     <div className="container">
       <h1 className="title">Feedback Collection System</h1>
-  
+
       <div className="form-container">
         <form onSubmit={submitHandler} className="feedback-form">
           <div className="form-group">
@@ -77,7 +94,7 @@ const App = () => {
               <option value="Product Quality">Product Quality</option>
             </select>
           </div>
-  
+
           <div className="form-group">
             <label htmlFor="name">Name:</label>
             <input
@@ -88,7 +105,7 @@ const App = () => {
               className="input-field"
             />
           </div>
-  
+
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <input
@@ -99,7 +116,7 @@ const App = () => {
               className="input-field"
             />
           </div>
-  
+
           <div className="form-group">
             <label htmlFor="rating">Rating (1-5):</label>
             <input
@@ -111,7 +128,7 @@ const App = () => {
               className="input-field"
             />
           </div>
-  
+
           <div className="form-group">
             <label htmlFor="comment">Comment:</label>
             <textarea
@@ -122,13 +139,13 @@ const App = () => {
               className="input-field"
             ></textarea>
           </div>
-  
+
           <button type="submit" className="submit-btn">Submit</button>
         </form>
-  
+
         {error && <p className="error-msg">{error}</p>}
       </div>
-  
+
       <div className="feedback-list">
         <h2>Feedback Received:</h2>
         {obj.map((val, i) => (
@@ -142,9 +159,19 @@ const App = () => {
           </div>
         ))}
       </div>
+
+      <div className="averages-section">
+        <h2>Average Ratings:</h2>
+        {Object.keys(averages).map((key) => (
+          <div key={key} className="average-item">
+            <h3>{key}</h3>
+            <p><strong>Average Rating:</strong> {averages[key].average}</p>
+            <p><strong>Total Feedbacks:</strong> {averages[key].count}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
-  
 };
 
 export default App;
