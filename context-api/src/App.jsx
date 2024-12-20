@@ -10,7 +10,7 @@ const App = () => {
     <ThemeContext.Provider value={{theme,settheme}} >
       <div className="container" style={{backgroundColor:theme==='light'?"black":"white"}}  >
       <ChildA/> 
-      </div>
+      </div>  
     
     </ThemeContext.Provider>
      

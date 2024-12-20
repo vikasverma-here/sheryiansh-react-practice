@@ -1,9 +1,9 @@
 import React from 'react'
-
-const App = () => {
+import child1 from './component/child1'
+function App() {
   return (
     <div>
-      app hai 
+      <child1/>
     </div>
   )
 }
