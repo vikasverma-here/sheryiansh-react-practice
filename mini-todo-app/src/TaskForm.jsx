@@ -1,6 +1,12 @@
-import React from 'react';
 
-const TaskForm = ({ text, settext, submitHandler, searchText, setSearchText }) => {
+
+
+
+import React, { useContext } from 'react';
+import { dataContext } from './App';
+
+const TaskForm = () => {
+  const {text,settext,submitHandler,searchText,setSearchText}=useContext(dataContext)
   return (
   <>
   

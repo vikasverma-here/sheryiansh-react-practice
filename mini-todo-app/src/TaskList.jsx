@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TaskItem from './TaskItem';
-
-const TaskList = ({ task, handlclick,searchText }) => {
+import { dataContext } from './App';
+const TaskList = () => {
+  const {task,handlclick,searchText}=useContext(dataContext)
     const filteredTasks = task.filter((t) =>
         t.text.toLowerCase().includes(searchText.toLowerCase()) 
       );
