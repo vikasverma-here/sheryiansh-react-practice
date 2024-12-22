@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+
 import ShowCounter from './pages/ShowCounter';
 import Decrement from './pages/Decrement';
+import Reset from './pages/Reset';
 
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
     <div>
       <ShowCounter/>
       <Decrement/>
+      <Reset/>
     </div>
   );
 };
