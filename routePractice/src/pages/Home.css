@@ -1,0 +1,81 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Container Styling */
+  .home-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Header Section */
+  .home-header {
+    background-color: #4caf50;
+    color: white;
+    padding: 60px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+  }
+  
+  .home-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .home-header p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .explore-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .explore-btn:hover {
+    background-color: #e6b800;
+  }
+  
+  /* Categories Section */
+  .categories {
+    margin-top: 40px;
+  }
+  
+  .categories h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .categories-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .category-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+ 

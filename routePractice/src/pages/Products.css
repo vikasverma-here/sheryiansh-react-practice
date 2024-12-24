@@ -1,0 +1,147 @@
+.main-container{
+    padding: 1rem 5rem;
+}
+
+
+  
+/* General body and font setup */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Heading styles */
+  .heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4caf50; /* Green theme */
+    margin: 30px 0;
+  }
+  
+  /* Container for products */
+  .products-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+  }
+  
+  /* Individual product card styling */
+  .product-card {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+  }
+  
+  /* Product image styling */
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  /* Title styling */
+  .product-card h2 {
+    color: #4caf50;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Product description text */
+  .product-card .desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  /* Price text */
+  .product-card .price {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Rating, warranty, shipping, and stock information */
+  .product-card .rating, 
+  .product-card .warranty,
+  .product-card .shipping,
+  .product-card .stock {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  /* Hover effect for the product card */
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Responsive design for various screen sizes */
+  
+  /* Tablets and smaller screens - 3 columns */
+  @media (max-width: 1024px) {
+    .products-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Mobile screens - 2 columns */
+  @media (max-width: 768px) {
+    .products-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .product-card {
+      padding: 15px;
+    }
+    
+    .product-card h2 {
+      font-size: 1.3rem;
+    }
+    
+    .product-card .desc,
+    .product-card .price {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Mobile screens - Single column layout */
+  @media (max-width: 480px) {
+    .products-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .heading {
+      font-size: 2rem;
+    }
+  
+    .product-card {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .product-card h2 {
+      font-size: 1.2rem;
+    }
+  
+    .product-card .desc,
+    .product-card .price {
+      font-size: 0.8rem;
+    }
+  }
+  
