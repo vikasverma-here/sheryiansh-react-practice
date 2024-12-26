@@ -1,18 +1,15 @@
 import React from 'react';
 import './Home.css'; // Import the external CSS file
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Home = () => {
-    const navigate = useNavigate();
-    const handleClick = ()=>{
-        navigate('/products');
-    }
+   
   return (
     <div className="home-container">
       <header className="home-header">
         <h1>Welcome to ShopEase</h1>
         <p>Discover a world of amazing products at unbeatable prices.</p>
-        <button className="explore-btn" onClick={handleClick}>Explore Now</button>
+      <Link to='/products' ><button className="explore-btn" >Explore Now</button></Link>  
       </header>
 
       <section className="categories">

@@ -90,7 +90,19 @@ body {
     transform: translateY(-5px);
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
   }
-  
+  .details-btn button{
+    background-color: #6200ea;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
   /* Responsive design for various screen sizes */
   
   /* Tablets and smaller screens - 3 columns */

@@ -5,6 +5,8 @@ import About from '../pages/About';
 import Services from '../pages/Services';
 import Contact from '../pages/Contact';
 import Products from '../pages/Products';
+import NPF from './NPF';
+import ProductsDetails from '../pages/ProductsDetails';
 const Nav = () => {
 return (
     <div>
@@ -36,6 +38,9 @@ return (
             <Route path="/about" element={<About/>}/>
             <Route path="/services" element={<Services/>}/>
             <Route path="/contact" element={<Contact/>}/>
+                <Route path="/products" element={<Products/>}/>
+                <Route path="/products/:id" element={<ProductsDetails/>}/>
+            <Route path='*' element={<NPF/>}/>
     </Routes>
     </div>
 )

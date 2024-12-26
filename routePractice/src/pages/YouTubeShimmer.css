@@ -1,0 +1,90 @@
+/* Shimmer container for centering the content */
+.shimmer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+
+    display: flex;
+
+    flex-wrap: wrap;
+    overflow: hidden;
+   
+  }
+  .one{
+    display: flex;
+  }
+  /* Individual video card */
+  .shimmer-video-card {
+    width: 350px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    overflow: hidden;
+  }
+  
+  /* Shimmer thumbnail */
+  .shimmer-thumbnail {
+    width: 100%;
+    height: 200px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  /* Shimmer info section (title, channel, stats) */
+  .shimmer-info {
+    padding: 12px;
+  }
+  
+  /* Shimmer title (video title) */
+  .shimmer-title {
+    width: 80%;
+    height: 20px;
+    background-color: #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  /* Shimmer channel name */
+  .shimmer-channel {
+    width: 60%;
+    height: 16px;
+    background-color: #e0e0e0;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  /* Shimmer stats (views and time) */
+  .shimmer-stats {
+    width: 50%;
+    height: 12px;
+    background-color: #e0e0e0;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  /* Keyframes for shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Adding the shimmer gradient */
+  .shimmer-thumbnail,
+  .shimmer-title,
+  .shimmer-channel,
+  .shimmer-stats {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+  }
+  

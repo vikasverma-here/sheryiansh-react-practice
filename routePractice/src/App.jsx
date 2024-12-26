@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Nav/>
-      <Products/>
+      
       <Footer/>
     </div>
   )
