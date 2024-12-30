@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+* {
+margin : 0;
+padding : 0;
+box-sizing : border-box;
+}
+html,body {
+width: 100%;
+height: 100%;
+background-color: black;
+color: white;
+padding: 40px;
+}
+img{
+  width: 200px;
+}
+button{
+  padding: 10px;
+}
+
+.yes{
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+ 
+}
+
+.main{
+  border: 2px solid white;
+ 
+}
