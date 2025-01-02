@@ -3,14 +3,14 @@ import { useParams } from 'react-router-dom';
 import { getData as fetchData } from '../services/GetServices';
 
 const ProductDetails = () => {
-    const [ndata, setNdata] = useState(null); // Use null to indicate initial state
+    const [ndata, setNdata] = useState(null); 
     const { id } = useParams();
 
     const fetchSingleData = async () => {
         try {
             const res = await fetchData();
-            const product = res.data.find((item) => item.id === parseInt(id)); // Match the id (convert to number)
-            setNdata(product); // Set the specific product
+            const product = res.data.find((item) => item.id === parseInt(id)); 
+            setNdata(product); 
         } catch (error) {
             console.error("Error fetching product data:", error);
         }
@@ -21,11 +21,11 @@ const ProductDetails = () => {
     }, [id]);
 
     if (!ndata) {
-        return <h2>Loading...</h2>; // Show loading state if data isn't available yet
+        return <h2>Loading...</h2>; 
     }
 
     return (
-        <div>
+        <div className='single-product'>
             <h1>Product Details</h1>
             <img src={ndata.image} alt={ndata.title} style={{ width: "200px" }} />
             <h2>Title: {ndata.title}</h2>

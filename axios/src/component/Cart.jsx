@@ -10,7 +10,7 @@ const Cart = ({element}) => {
         <img className='w-[200px]' src={image} alt="" />
       <h3>{category}</h3>
       <h2>{price}</h2>
-       <Link to={`/productdetails/${id}`}><button>Details</button></Link>
+       <Link to={`/productdetails/${id}`}><button id='btn' >Details</button></Link>
       
      
     </div>
